@@ -1,0 +1,1 @@
+This activity does not use a database. Customer and user records are stored temporarily in static PHP arrays inside the Customers and Users controllers. A database will be introduced in the next module.
