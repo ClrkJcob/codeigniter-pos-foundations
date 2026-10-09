@@ -3,8 +3,9 @@
 use CodeIgniter\Router\RouteCollection;
 
 /** @var RouteCollection $routes */
-$routes->get('/', 'Pages::index');
-
+$routes->get('/', 'Tasks::today');
+$routes->get('tasks', 'Tasks::index');
+$routes->get('profile', 'Pages::profile');
 $routes->get('hello', 'Hello::index');
 $routes->get('about', 'Pages::about');
 $routes->get('customers', 'Customers::index', ['filter' => 'auth']);
