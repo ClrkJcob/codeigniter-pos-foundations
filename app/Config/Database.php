@@ -26,10 +26,10 @@ class Database extends Config
      */
    public array $default = [
     'DSN'          => '',
-    'hostname'     => env('DB_HOST', 'localhost'),
-    'username'     => env('DB_USER', 'root'),
-    'password'     => env('DB_PASSWORD', ''),
-    'database'     => env('DB_NAME', 'pos_db'),
+    'hostname' => 'localhost',
+'username' => 'root',
+'password' => '',
+'database' => 'pos_db',
     'DBDriver'     => 'MySQLi',
     'DBPrefix'     => '',
     'pConnect'     => false,
@@ -37,11 +37,11 @@ class Database extends Config
     'charset'      => 'utf8mb4',
     'DBCollat'     => 'utf8mb4_general_ci',
     'swapPre'      => '',
-    'encrypt'      => filter_var(env('DB_ENCRYPT', 'false'), FILTER_VALIDATE_BOOLEAN),
+    'encrypt'      => false,
     'compress'     => false,
     'strictOn'     => false,
     'failover'     => [],
-    'port'         => (int) env('DB_PORT', 3306),
+    'port'         => 3306,
     'numberNative' => false,
     'foundRows'    => false,
     'dateFormat'   => [
@@ -193,6 +193,15 @@ class Database extends Config
     public function __construct()
     {
         parent::__construct();
+        $this->default['hostname'] = env('DB_HOST', 'localhost');
+        $this->default['username'] = env('DB_USER', 'root');
+        $this->default['password'] = env('DB_PASSWORD', '');
+        $this->default['database'] = env('DB_NAME', 'pos_db');
+        $this->default['encrypt'] = filter_var(
+            env('DB_ENCRYPT', 'false'),
+            FILTER_VALIDATE_BOOLEAN
+);
+$this->default['port'] = (int) env('DB_PORT', 3306);
 
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that
