@@ -14,9 +14,9 @@ WORKDIR /var/www/html
 COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction \
-    && mkdir -p /var/www/html/public/uploads/avatars \
-    && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads \
-    && chmod -R 775 /var/www/html/writable /var/www/html/public/uploads
+&& mkdir -p /var/www/html/public/uploads/avatars /var/www/html/public/uploads/products \    
+&& chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads \
+&& chmod -R 775 /var/www/html/writable /var/www/html/public/uploads
 
 RUN printf '%s\n' \
     '<VirtualHost *:10000>' \

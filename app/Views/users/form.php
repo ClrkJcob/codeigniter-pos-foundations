@@ -29,6 +29,22 @@
             required
         >
     </p>
+
+    <p>
+    <label for="password">Password</label><br>
+    <input
+        type="password"
+        id="password"
+        name="password"
+        minlength="8"
+        <?= empty($user['id']) ? 'required' : '' ?>
+    >
+
+    <?php if (! empty($user['id'])): ?>
+        <small>Leave blank to keep the current password.</small>
+    <?php endif; ?>
+</p>
+
     <?php if (! empty($isEdit)): ?>
     <p>
         <label for="avatar">
