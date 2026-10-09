@@ -1,8 +1,9 @@
 FROM php:8.2-apache
 
 RUN apt-get update \
-    && apt-get install -y git unzip libicu-dev libonig-dev \
-    && docker-php-ext-install intl mbstring mysqli \
+    && apt-get install -y git unzip libicu-dev libonig-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
+&& docker-php-ext-configure gd --with-freetype --with-jpeg \
+&& docker-php-ext-install intl mbstring mysqli gd \
     && a2enmod rewrite \
     && rm -rf /var/lib/apt/lists/*
 
@@ -13,8 +14,9 @@ WORKDIR /var/www/html
 COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction \
-    && chown -R www-data:www-data /var/www/html/writable \
-    && chmod -R 775 /var/www/html/writable
+    && mkdir -p /var/www/html/public/uploads/avatars \
+    && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads \
+    && chmod -R 775 /var/www/html/writable /var/www/html/public/uploads
 
 RUN printf '%s\n' \
     '<VirtualHost *:10000>' \
