@@ -6,11 +6,11 @@ class Pages extends BaseController
 {
     public function index()
     {
-        return view('pages/home');
+        return view('Pages/home');
     }
 
     public function about()
     {
-        return view('pages/about');
+        return view('Pages/about');
     }
 }
