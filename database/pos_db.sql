@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2026 at 01:42 PM
+-- Generation Time: Oct 09, 2026 at 04:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -56,6 +56,7 @@ INSERT INTO `customers` (`id`, `full_name`, `email`, `phone`, `created_at`) VALU
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL,
   `avatar` varchar(255) DEFAULT NULL
@@ -65,13 +66,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `created_at`, `avatar`) VALUES
-(1, 'admin01', 'Admin User', '2026-10-09 16:22:53', NULL),
-(2, 'cashier01', 'Liza Cruz', '2026-10-09 16:22:53', NULL),
-(3, 'cashier02', 'Pedro Santos', '2026-10-09 16:22:53', NULL),
-(4, 'manager01', 'Ana Reyes', '2026-10-09 16:22:53', NULL),
-(5, 'staff01', 'Kevin Garcia', '2026-10-09 16:22:53', NULL),
-(6, 'clark_llamoso24', 'Clark Jacob P. Llamoso', '2026-10-09 16:22:53', NULL);
+INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `created_at`, `avatar`) VALUES
+(1, 'admin01', '$2y$10$Wq/JDzQNLvJd.A/0JPhz4uVk34jmyWPPv1GebU0UyQXilOTG5OO1q', 'Admin User', '2026-10-09 16:22:53', NULL),
+(2, 'cashier01', '$2y$10$Wq/JDzQNLvJd.A/0JPhz4uVk34jmyWPPv1GebU0UyQXilOTG5OO1q', 'Liza Cruz', '2026-10-09 16:22:53', NULL),
+(3, 'cashier02', '$2y$10$Wq/JDzQNLvJd.A/0JPhz4uVk34jmyWPPv1GebU0UyQXilOTG5OO1q', 'Pedro Santos', '2026-10-09 16:22:53', NULL),
+(4, 'manager01', '$2y$10$Wq/JDzQNLvJd.A/0JPhz4uVk34jmyWPPv1GebU0UyQXilOTG5OO1q', 'Ana Reyes', '2026-10-09 16:22:53', NULL),
+(5, 'staff01', '$2y$10$Wq/JDzQNLvJd.A/0JPhz4uVk34jmyWPPv1GebU0UyQXilOTG5OO1q', 'Kevin Garcia', '2026-10-09 16:22:53', NULL),
+(6, 'clark_llamoso24', '$2y$10$Wq/JDzQNLvJd.A/0JPhz4uVk34jmyWPPv1GebU0UyQXilOTG5OO1q', 'Clark Jacob P. Llamoso', '0000-00-00 00:00:00', '1791545869_6fb04c66025f4679121d.png');
 
 --
 -- Indexes for dumped tables

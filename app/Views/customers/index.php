@@ -13,6 +13,10 @@
     <a href="<?= base_url('/customers') ?>">Customer Accounts</a> |
     <a href="<?= base_url('/users') ?>">User Accounts</a>
 </nav>
+<form method="post" action="<?= site_url('logout') ?>">
+    <?= csrf_field() ?>
+    <button type="submit">Logout</button>
+</form>
 <p>
     <a href="<?= site_url('customers/new') ?>">Add New Customer</a>
 </p>
